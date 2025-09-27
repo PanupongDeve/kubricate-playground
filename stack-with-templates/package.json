@@ -1,0 +1,16 @@
+{
+  "name": "first-stack",
+  "module": "index.ts",
+  "type": "module",
+  "private": true,
+  "devDependencies": {
+    "@types/bun": "latest",
+    "kubricate": "^0.20.1"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "dependencies": {
+    "@kubricate/stacks": "^0.20.1"
+  }
+}

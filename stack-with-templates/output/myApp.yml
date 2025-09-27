@@ -1,0 +1,53 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: demo-app
+  namespace: demo-namespace
+  labels:
+    kubricate.thaitype.dev: "true"
+    kubricate.thaitype.dev/stack-id: myApp
+    kubricate.thaitype.dev/resource-id: deployment
+  annotations:
+    kubricate.thaitype.dev/stack-name: SimpleApp
+    kubricate.thaitype.dev/version: 0.20.1
+    kubricate.thaitype.dev/resource-hash: 4dbcae0f4821fac1bf5c3e95471de41a953321b28d93122dfe1f72c10415628b
+    kubricate.thaitype.dev/managed-at: 2025-09-27T07:08:16.425Z
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: demo-app
+  template:
+    metadata:
+      labels:
+        app: demo-app
+    spec:
+      containers:
+        - image: nginx:latest
+          name: demo-app
+          ports:
+            - containerPort: 8080
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: demo-app
+  namespace: demo-namespace
+  labels:
+    kubricate.thaitype.dev: "true"
+    kubricate.thaitype.dev/stack-id: myApp
+    kubricate.thaitype.dev/resource-id: service
+  annotations:
+    kubricate.thaitype.dev/stack-name: SimpleApp
+    kubricate.thaitype.dev/version: 0.20.1
+    kubricate.thaitype.dev/resource-hash: 34df372e60a94d4ba1aed5d57053212f80195c8c3e3ed0762bba1fa90e362f14
+    kubricate.thaitype.dev/managed-at: 2025-09-27T07:08:16.425Z
+spec:
+  selector:
+    app: demo-app
+  type: ClusterIP
+  ports:
+    - port: 8080
+      targetPort: 8080
+---

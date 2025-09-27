@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: demo-namespace
+  labels:
+    kubricate.thaitype.dev: "true"
+    kubricate.thaitype.dev/stack-id: myNamespace
+    kubricate.thaitype.dev/resource-id: namespace
+  annotations:
+    kubricate.thaitype.dev/stack-name: Namespace
+    kubricate.thaitype.dev/version: 0.20.1
+    kubricate.thaitype.dev/resource-hash: dfaa4e3b1d8b11598491bf0022c2d7763dcc9ca8f88aa02f954b6a33364cbdb4
+    kubricate.thaitype.dev/managed-at: 2025-09-27T07:08:16.414Z
+---
